@@ -59,11 +59,13 @@ python matroschka.py -open -m foo -k bar resources/matroschka_big.png
 
 ```bash 
 docker run --rm -v <image>:/crypt.bmp deepsecs.com/matroschka /crypt <crypt text>
+docker run --rm -v <image>:/crypt.png -v <input>:/passwords.png deepsecs.com/matroschka /fcrypt
 
 **Reveal Secret**
 
 ```bash 
 docker run --rm -v <image>:/decrypt.bmp deepsecs.com/matroschka
+docker run --rm -v <image>:/decrypt.png -v <output>:/var/log/secret-image.png deepsecs.com/matroschka /decrypt
 
 **Example**
 

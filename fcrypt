@@ -1,0 +1,8 @@
+#!/bin/bash
+
+PASS_FILE="$(ls /passwords.*)"
+IMAGE_FILE="$(ls /crypt.*)"
+
+python /opt/matroschka/matroschka.pyc -hide -m $MAC_PASSWORD -k $KEY_PASSWORD "${PASS_FILE}" "${IMAGE_FILE}"
+
+

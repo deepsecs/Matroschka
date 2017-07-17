@@ -29,6 +29,7 @@ RUN python -m compileall /opt/matroschka
 RUN rm -rf /opt/matroschka/*.py
 
 ADD crypt /crypt
+ADD fcrypt /fcrypt
 ADD decrypt /decrypt
 
 WORKDIR /opt/matroschka

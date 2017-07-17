@@ -131,18 +131,18 @@ def decrypt():
     # split hmac and message data
     mac, data = decrypted_secret.split('--:--')
 
+    print 'HMAC hex is: \n%s\n' % mac.encode('hex')
+    check_hmac(mac, data)
+
     if data_type == 'image':
-        ipath = "resources/secret-image.png"
+        ipath = "/var/log/secret-image.png"
         print "the secret image is stored under: " + ipath
         fh = open(ipath, "wb")
         fh.write(data.decode('base64'))
         fh.close()
-        Image.open(ipath).show()
+        # Image.open(ipath).show()
     else:
         print 'The hidden message is: \n%s\n' % data
-
-    print 'HMAC hex is: \n%s\n' % mac.encode('hex')
-    check_hmac(mac, data)
 
 
 if __name__ == '__main__':
