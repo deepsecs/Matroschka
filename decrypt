@@ -1,0 +1,6 @@
+#!/bin/bash
+
+IMAGE_FILE="$(ls /decrypt.*)"
+
+python /opt/matroschka/matroschka.pyc -open -m $MAC_PASSWORD -k $KEY_PASSWORD "${IMAGE_FILE}"
+

@@ -52,6 +52,31 @@ Decrypting the image will save the extracted image in resources/secret-image.png
 
 ```bash 
 python matroschka.py -open -m foo -k bar resources/matroschka_big.png
+
+# Docker Image Usage
+
+**Hide Secret**
+
+```bash 
+docker run --rm -v <image>:/crypt.bmp deepsecs.com/matroschka /crypt <crypt text>
+
+**Reveal Secret**
+
+```bash 
+docker run --rm -v <image>:/decrypt.bmp deepsecs.com/matroschka
+
+**Example**
+
+*matroschka_medium.png* gets hidden and encrypted in *matroschka_big.png*
+
+```bash 
+docker run --rm -v resources/matroschka_medium.png:/crypt.bmp deepsecs.com/matroschka /crypt test
+
+Decrypting the image will save the extracted image in resources/secret-image.png
+
+```bash 
+docker run --rm -v resources/matroschka_medium.png:/decrypt.bmp deepsecs.com/matroschka
+
 ```
 
 #License

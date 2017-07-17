@@ -1,0 +1,12 @@
+#!/bin/bash
+
+PASS_FILE="$(mktemp).txt"
+
+echo -n "$1" > ${PASS_FILE}
+
+IMAGE_FILE="$(ls /crypt.*)"
+
+python /opt/matroschka/matroschka.pyc -hide -m $MAC_PASSWORD -k $KEY_PASSWORD "${PASS_FILE}" "${IMAGE_FILE}"
+
+unlink ${PASS_FILE}
+
